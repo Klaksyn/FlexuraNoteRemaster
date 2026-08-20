@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>UI/icons/B.jpg</file>
+        <file>UI/icons/back.png</file>
+        <file>UI/icons/by_width.png</file>
+        <file>UI/icons/center.png</file>
+        <file>UI/icons/color.png</file>
+        <file>UI/icons/copy.png</file>
+        <file>UI/icons/cursive.png</file>
+        <file>UI/icons/cut.png</file>
+        <file>UI/icons/font_size.png</file>
+        <file>UI/icons/icon_program.png</file>
+        <file>UI/icons/image (1).svg</file>
+        <file>UI/icons/left.png</file>
+        <file>UI/icons/logo_B.png</file>
+        <file>UI/icons/logo_info.png</file>
+        <file>UI/icons/logo_u.png</file>
+        <file>UI/icons/logo_Und.png</file>
+        <file>UI/icons/loup.png</file>
+        <file>UI/icons/minus.png</file>
+        <file>UI/icons/newFile.png</file>
+        <file>UI/icons/openFile.png</file>
+        <file>UI/icons/paste.png</file>
+        <file>UI/icons/plus.png</file>
+        <file>UI/icons/print.png</file>
+        <file>UI/icons/replace.png</file>
+        <file>UI/icons/right.png</file>
+        <file>UI/icons/saveAs.png</file>
+        <file>UI/icons/saveFile.png</file>
+        <file>UI/icons/secret.png</file>
+        <file>UI/icons/setting.png</file>
+        <file>UI/icons/text_fill_color.png</file>
+        <file>UI/icons/through.png</file>
+        <file>UI/icons/redo.png</file>
+    </qresource>
+</RCC>
