@@ -1,0 +1,29 @@
+/* Main tab widget frame */
+QTabWidget::pane {
+    border: 1px solid #C2C7CB;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+/* Style the tab bar */
+QTabBar::tab {
+    background: #E1E4E8;
+    color: #4A4A4A;
+    padding: 8px 16px;
+    margin-right: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+/* Selected/active tab */
+QTabBar::tab:selected {
+    background: #FFFFFF;
+    color: #0066CC;
+    border-bottom: 2px solid #0066CC;
+}
+
+/* Hover state */
+QTabBar::tab:hover:not(:selected) {
+    background: #D0D7DE;
+    color: #1F2328;
+}

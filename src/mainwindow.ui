@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1087</width>
-    <height>602</height>
+    <width>1105</width>
+    <height>621</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,21 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTextEdit" name="textEdit"/>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Tab 1</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Tab 2</string>
+       </attribute>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -25,7 +39,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1087</width>
+     <width>1105</width>
      <height>21</height>
     </rect>
    </property>
@@ -73,10 +87,17 @@
     <property name="title">
      <string>Setting</string>
     </property>
+    <widget class="QMenu" name="menuTheme">
+     <property name="title">
+      <string>Theme</string>
+     </property>
+     <addaction name="actionWhite"/>
+     <addaction name="actionDark"/>
+    </widget>
     <addaction name="actionLine_break"/>
     <addaction name="actionAuto_save"/>
     <addaction name="actionSatus_bar"/>
-    <addaction name="actionTheme"/>
+    <addaction name="menuTheme"/>
     <addaction name="separator"/>
     <addaction name="actionZoom_reset"/>
     <addaction name="actionReset_text_settings"/>
@@ -293,23 +314,27 @@
    </property>
   </action>
   <action name="actionLine_break">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Line break</string>
    </property>
   </action>
   <action name="actionAuto_save">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Auto save</string>
    </property>
   </action>
   <action name="actionSatus_bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Satus bar</string>
-   </property>
-  </action>
-  <action name="actionTheme">
-   <property name="text">
-    <string>Theme</string>
    </property>
   </action>
   <action name="actionZoom_reset">
@@ -323,6 +348,9 @@
    </property>
   </action>
   <action name="actionShow_html_code">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Show html code</string>
    </property>
@@ -333,6 +361,9 @@
    </property>
   </action>
   <action name="actionAbout_program">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::HelpAbout"/>
+   </property>
    <property name="text">
     <string>About program</string>
    </property>
@@ -357,6 +388,16 @@
    </property>
    <property name="shortcut">
     <string>F2</string>
+   </property>
+  </action>
+  <action name="actionWhite">
+   <property name="text">
+    <string>White</string>
+   </property>
+  </action>
+  <action name="actionDark">
+   <property name="text">
+    <string>Dark</string>
    </property>
   </action>
  </widget>

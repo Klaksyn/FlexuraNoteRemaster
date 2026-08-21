@@ -24,6 +24,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         resources.qrc
+        src/helpers/style_loader.h src/helpers/style_loader.cpp
+        DOCUMENTATION/Style/includeStyle.md
+        DOCUMENTATION/Style/my-notes.md
+        src/CustomTitleBar/customtitlebar.h src/CustomTitleBar/customtitlebar.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FlexuraNote APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
