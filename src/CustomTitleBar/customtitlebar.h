@@ -12,20 +12,21 @@ class CustomTitleBar : public QWidget
 public:
     explicit CustomTitleBar(QWidget *parent = nullptr);
 
-    QTabBar* tabBar() const {
-        return m_tabBar;
-    }
+    QTabBar* tabBar() const { return m_tabBar; }
+
+    QPushButton *getMaximizeButton() const { return m_maximizeBtn; }
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 private:
     QTabBar     *m_tabBar;
     QPushButton *m_minimizeBtn;
     QPushButton *m_maximizeBtn;
     QPushButton *m_closeBtn;
-    QPoint      m_dragPosition;
+    QPoint       m_dragPosition;
 
 };
 

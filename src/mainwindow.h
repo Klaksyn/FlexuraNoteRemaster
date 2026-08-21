@@ -1,5 +1,6 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
+
+#include "customTitleBar/customtitlebar.h"
 
 #include <QMainWindow>
 #include <QStackedWidget>
@@ -18,8 +19,14 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
+protected:
+    // Intercepting Windows system events (for Snap Layouts)
+    bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result);
+
+
 private:
     Ui::MainWindow *ui;
     QStackedWidget *m_stackedWidget;
+    CustomTitleBar *m_titleBar;
 };
-#endif // MAINWINDOW_H
+

@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QString combinedStyle = loadStyleFile(":/styles/dark.qss")
-                           + loadStyleFile(":/styles/tab.qss");
+    QString combinedStyle = loadStyleFile(":/res/UI/styles/tab.qss")
+                           + loadStyleFile("UI/styles/anyStyle.qss");
 
     a.setStyleSheet(combinedStyle);
 

@@ -1,4 +1,4 @@
-#include "style_loader.h"
+#include "styleloader.h"
 
 #include <QFile>
 #include <QTextStream>

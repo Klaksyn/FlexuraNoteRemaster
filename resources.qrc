@@ -7,5 +7,6 @@
         <file>UI/icons/save.png</file>
         <file>UI/icons/save-as.png</file>
         <file>UI/styles/tab.qss</file>
+        <file>UI/styles/btnTitleBar.qss</file>
     </qresource>
 </RCC>

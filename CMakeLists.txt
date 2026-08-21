@@ -19,15 +19,34 @@ set(PROJECT_SOURCES
         src/mainwindow.ui
 )
 
+set(STYLES_SOURCES
+    src/helpers/style/styleloader.h
+    src/helpers/style/styleloader.cpp
+    src/helpers/style/styleloader.cpp
+    src/helpers/style/styleloader.cpp
+)
+
+set(DOCUMENTATION
+    DOCUMENTATION/style/includeStyle.md
+    DOCUMENTATION/style/my-notes.md
+)
+
+set(CUSTOM_TITLE_BAR
+    src/customTitleBar/customtitlebar.h
+    src/customTitleBar/customtitlebar.cpp
+
+    src/helpers/customTitleBar/customtitlebarhelper.h
+    src/helpers/customTitleBar/customtitlebarhelper.cpp
+)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(FlexuraNote
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ${STYLES_SOURCES}
+        ${CUSTOM_TITLE_BAR}
+        ${DOCUMENTATION}
         resources.qrc
-        src/helpers/style_loader.h src/helpers/style_loader.cpp
-        DOCUMENTATION/Style/includeStyle.md
-        DOCUMENTATION/Style/my-notes.md
-        src/CustomTitleBar/customtitlebar.h src/CustomTitleBar/customtitlebar.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FlexuraNote APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -47,7 +66,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(FlexuraNote PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(FlexuraNote PRIVATE Qt${QT_VERSION_MAJOR}::Widgets dwmapi)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
