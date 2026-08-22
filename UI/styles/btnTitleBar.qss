@@ -1,7 +1,0 @@
-QPushButton {
-    background-color: transparent;
-}
-
-QPushButton#closeBtn:hover {
-    background-color: red;
-}

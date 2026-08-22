@@ -1,4 +1,5 @@
 QTabBar::tab {
-    background: transparent;
-    padding: 10px 30x;
+    padding: 6px 24px 6px;
 }
+
+

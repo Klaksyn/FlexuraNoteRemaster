@@ -31,14 +31,6 @@ set(DOCUMENTATION
     DOCUMENTATION/style/my-notes.md
 )
 
-set(CUSTOM_TITLE_BAR
-    src/customTitleBar/customtitlebar.h
-    src/customTitleBar/customtitlebar.cpp
-
-    src/helpers/customTitleBar/customtitlebarhelper.h
-    src/helpers/customTitleBar/customtitlebarhelper.cpp
-)
-
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(FlexuraNote
         MANUAL_FINALIZATION

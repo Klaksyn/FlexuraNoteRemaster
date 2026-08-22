@@ -8,8 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QString combinedStyle = loadStyleFile(":res/UI/styles/tab.qss")
-                            + loadStyleFile(":res/UI/styles/btnTitleBar.qss");
+    QString combinedStyle = loadStyleFile(":res/UI/styles/tab.qss");
 
     a.setStyleSheet(combinedStyle);
 
