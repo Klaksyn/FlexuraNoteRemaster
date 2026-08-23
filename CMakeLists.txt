@@ -39,6 +39,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${CUSTOM_TITLE_BAR}
         ${DOCUMENTATION}
         resources.qrc
+        src/helpers/tabs/handletabs.h src/helpers/tabs/handletabs.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FlexuraNote APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

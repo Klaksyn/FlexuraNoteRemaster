@@ -1,6 +1,9 @@
 #pragma once
 
+#include "helpers/tabs/handletabs.h"
+
 #include <QMainWindow>
+#include <memory>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,7 +20,12 @@ public:
     ~MainWindow() override;
 
 
+private slots:
+    void on_actionNew_Tab_triggered();
+    void onTabCloseRequested(int index);
+
 private:
     Ui::MainWindow *ui;
+    std::unique_ptr<HandleTabs> handleTabs;
 };
 
