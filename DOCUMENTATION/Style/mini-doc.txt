@@ -1,4 +1,4 @@
-# How to include styles in my program (e.g. qss files)
+How to include styles in my program (e.g. qss files)
 
 In src/helpers contains style_loader where has func of 
 QString loadStyleFile(const QString& pathStyle)

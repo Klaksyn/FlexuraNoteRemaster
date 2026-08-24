@@ -1,0 +1,24 @@
+How to include Handle Tabs
+
+First:
+    In header file of MainWindow, declare a variable handleTabs, like this:
+
+        private:
+            std::unique_ptr<HandleTabs> handleTabs;
+
+Second:
+    In constructor of MainWindow, initialize it like this:
+
+            handleTabs = std::make_unique<HandleTabs>(ui->tabWidget);
+
+Third:
+    You can now use any functions from HandleTabs through this pointer, for example:
+
+        handleTabs->addTab();
+        handleTabs->removeTab(2);
+
+Note:
+    HandleTabs is stored as a std::unique_ptr, which means:
+    - it cannot be copied, only moved
+    - its lifetime is tied to MainWindow
+    - never store a raw pointer to it outside of MainWindow's scope
