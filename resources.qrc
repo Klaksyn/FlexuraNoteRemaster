@@ -1,11 +1,16 @@
 <RCC>
     <qresource prefix="/res">
         <file>UI/icons/folder.png</file>
-        <file>UI/icons/folder-2.png</file>
         <file>UI/icons/icon_program.png</file>
         <file>UI/icons/new-file.png</file>
         <file>UI/icons/save.png</file>
         <file>UI/icons/save-as.png</file>
         <file>UI/styles/tab.qss</file>
+        <file>UI/icons/copy.png</file>
+        <file>UI/icons/paste.png</file>
+        <file>UI/icons/print.png</file>
+        <file>UI/icons/cut.png</file>
+        <file>UI/icons/find.png</file>
+        <file>UI/icons/replace.png</file>
     </qresource>
 </RCC>

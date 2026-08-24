@@ -28,7 +28,7 @@ set(STYLES_SOURCES
 
 set(DOCUMENTATION
     DOCUMENTATION/style/includeStyle.md
-    DOCUMENTATION/style/my-notes.md
+    DOCUMENTATION/style/mini-doc.txt
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -40,6 +40,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${DOCUMENTATION}
         resources.qrc
         src/helpers/tabs/handletabs.h src/helpers/tabs/handletabs.cpp
+        DOCUMENTATION/tabs/includeHandleTabs.md
+        DOCUMENTATION/tabs/mini-doc.txt
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FlexuraNote APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

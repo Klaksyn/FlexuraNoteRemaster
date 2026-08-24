@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>true</bool>
@@ -149,12 +149,37 @@
    <addaction name="menuSetting"/>
    <addaction name="menuAbout"/>
   </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNewFileIcon"/>
+   <addaction name="actionOpenFileIcon"/>
+   <addaction name="actionSaveFileIcon"/>
+   <addaction name="actionSaveAsFileIcon"/>
+   <addaction name="actionPrintIcon"/>
+   <addaction name="actionCopyTextIcon"/>
+   <addaction name="actionPasteTextIcon"/>
+   <addaction name="actionCutTextIcon"/>
+   <addaction name="actionFindIcon"/>
+   <addaction name="actionReplaceTextIcon"/>
+   <addaction name="actionFind_earlier"/>
+  </widget>
   <action name="actionNew_Tab">
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::WindowNew"/>
    </property>
    <property name="text">
     <string>New tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
   <action name="actionNew_window">
@@ -432,7 +457,159 @@
     <string>Dark</string>
    </property>
   </action>
+  <action name="actionNewFileIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/new-file.png</normaloff>:/res/UI/icons/new-file.png</iconset>
+   </property>
+   <property name="text">
+    <string>newFile</string>
+   </property>
+   <property name="toolTip">
+    <string>add new tab</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionOpenFileIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/folder.png</normaloff>:/res/UI/icons/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>openFile</string>
+   </property>
+   <property name="toolTip">
+    <string>open file</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionSaveFileIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/save.png</normaloff>:/res/UI/icons/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>saveFile</string>
+   </property>
+   <property name="toolTip">
+    <string>save file</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionSaveAsFileIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/save-as.png</normaloff>:/res/UI/icons/save-as.png</iconset>
+   </property>
+   <property name="text">
+    <string>SaveAsFile</string>
+   </property>
+   <property name="toolTip">
+    <string>save as...</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionPrintIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/print.png</normaloff>:/res/UI/icons/print.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+   <property name="toolTip">
+    <string>print text</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCopyTextIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/copy.png</normaloff>:/res/UI/icons/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>CopyText</string>
+   </property>
+   <property name="toolTip">
+    <string>copy selected text</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionPasteTextIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/paste.png</normaloff>:/res/UI/icons/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>PasteText</string>
+   </property>
+   <property name="toolTip">
+    <string>paste text in this line</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCutTextIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/cut.png</normaloff>:/res/UI/icons/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>CutText</string>
+   </property>
+   <property name="toolTip">
+    <string>cut the text</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionFindIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/find.png</normaloff>:/res/UI/icons/find.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find</string>
+   </property>
+   <property name="toolTip">
+    <string>find the desired text</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionReplaceTextIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/replace.png</normaloff>:/res/UI/icons/replace.png</iconset>
+   </property>
+   <property name="text">
+    <string>ReplaceText</string>
+   </property>
+   <property name="toolTip">
+    <string>replace old text with new</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
