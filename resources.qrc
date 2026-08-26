@@ -10,7 +10,22 @@
         <file>UI/icons/paste.png</file>
         <file>UI/icons/print.png</file>
         <file>UI/icons/cut.png</file>
+        <file>UI/icons/back.png</file>
+        <file>UI/icons/undo.png</file>
         <file>UI/icons/find.png</file>
         <file>UI/icons/replace.png</file>
+        <file>UI/icons/italic.png</file>
+        <file>UI/icons/underline.png</file>
+        <file>UI/icons/bold.png</file>
+        <file>UI/icons/through.png</file>
+        <file>UI/icons/align-center.png</file>
+        <file>UI/icons/align-left.png</file>
+        <file>UI/icons/align-right.png</file>
+        <file>UI/icons/color.png</file>
+        <file>UI/icons/font_size.png</file>
+        <file>UI/icons/info.png</file>
+        <file>UI/icons/text_fill_color.png</file>
+        <file>UI/icons/increase.png</file>
+        <file>UI/icons/reduce.png</file>
     </qresource>
 </RCC>

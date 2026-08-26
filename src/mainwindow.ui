@@ -169,7 +169,21 @@
    <addaction name="actionCutTextIcon"/>
    <addaction name="actionFindIcon"/>
    <addaction name="actionReplaceTextIcon"/>
-   <addaction name="actionFind_earlier"/>
+   <addaction name="actionBackLastChangeIcon"/>
+   <addaction name="actionUndoIcon"/>
+   <addaction name="actionBoldIcon"/>
+   <addaction name="actionItalicIcon"/>
+   <addaction name="actionUnderline"/>
+   <addaction name="actionStrikeThroughIcon"/>
+   <addaction name="actionAlignLeftIcon"/>
+   <addaction name="actionAlignCenterIcon"/>
+   <addaction name="actionAlignRightIcon"/>
+   <addaction name="actionFontSizeIcon"/>
+   <addaction name="actionTextFillIcon"/>
+   <addaction name="actionColorTextIcon"/>
+   <addaction name="actionIncreseIcon"/>
+   <addaction name="actionReduceIcon"/>
+   <addaction name="actionInfoIcon"/>
   </widget>
   <action name="actionNew_Tab">
    <property name="icon">
@@ -463,7 +477,7 @@
      <normaloff>:/res/UI/icons/new-file.png</normaloff>:/res/UI/icons/new-file.png</iconset>
    </property>
    <property name="text">
-    <string>newFile</string>
+    <string>NewFile</string>
    </property>
    <property name="toolTip">
     <string>add new tab</string>
@@ -478,7 +492,7 @@
      <normaloff>:/res/UI/icons/folder.png</normaloff>:/res/UI/icons/folder.png</iconset>
    </property>
    <property name="text">
-    <string>openFile</string>
+    <string>OpenFile</string>
    </property>
    <property name="toolTip">
     <string>open file</string>
@@ -493,7 +507,7 @@
      <normaloff>:/res/UI/icons/save.png</normaloff>:/res/UI/icons/save.png</iconset>
    </property>
    <property name="text">
-    <string>saveFile</string>
+    <string>SaveFile</string>
    </property>
    <property name="toolTip">
     <string>save file</string>
@@ -602,6 +616,225 @@
    </property>
    <property name="toolTip">
     <string>replace old text with new</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionBackLastChangeIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/back.png</normaloff>:/res/UI/icons/back.png</iconset>
+   </property>
+   <property name="text">
+    <string>BackLastChange</string>
+   </property>
+   <property name="toolTip">
+    <string>revert the last change</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionUndoIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/undo.png</normaloff>:/res/UI/icons/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>cancel the action</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionBoldIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/bold.png</normaloff>:/res/UI/icons/bold.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bold</string>
+   </property>
+   <property name="toolTip">
+    <string>make the text bold</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionItalicIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/italic.png</normaloff>:/res/UI/icons/italic.png</iconset>
+   </property>
+   <property name="text">
+    <string>Italic</string>
+   </property>
+   <property name="toolTip">
+    <string>make text in italics</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionUnderline">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/underline.png</normaloff>:/res/UI/icons/underline.png</iconset>
+   </property>
+   <property name="text">
+    <string>Underline</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionStrikeThroughIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/through.png</normaloff>:/res/UI/icons/through.png</iconset>
+   </property>
+   <property name="text">
+    <string>StrikeThroughIcon</string>
+   </property>
+   <property name="toolTip">
+    <string>make text in Strike Through</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionAlignCenterIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/align-center.png</normaloff>:/res/UI/icons/align-center.png</iconset>
+   </property>
+   <property name="text">
+    <string>AlignCenter</string>
+   </property>
+   <property name="toolTip">
+    <string>Align Center</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionAlignRightIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/align-right.png</normaloff>:/res/UI/icons/align-right.png</iconset>
+   </property>
+   <property name="text">
+    <string>AlignRight</string>
+   </property>
+   <property name="toolTip">
+    <string>Align Right</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionAlignLeftIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/align-left.png</normaloff>:/res/UI/icons/align-left.png</iconset>
+   </property>
+   <property name="text">
+    <string>Alignleft</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionFontSizeIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/font_size.png</normaloff>:/res/UI/icons/font_size.png</iconset>
+   </property>
+   <property name="text">
+    <string>FontSize</string>
+   </property>
+   <property name="toolTip">
+    <string>change the font size</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionTextFillIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/text_fill_color.png</normaloff>:/res/UI/icons/text_fill_color.png</iconset>
+   </property>
+   <property name="text">
+    <string>TextFill</string>
+   </property>
+   <property name="toolTip">
+    <string>change the text background</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionColorTextIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/color.png</normaloff>:/res/UI/icons/color.png</iconset>
+   </property>
+   <property name="text">
+    <string>ColorText</string>
+   </property>
+   <property name="toolTip">
+    <string>change the text color</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionIncreseIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/increase.png</normaloff>:/res/UI/icons/increase.png</iconset>
+   </property>
+   <property name="text">
+    <string>Increse</string>
+   </property>
+   <property name="toolTip">
+    <string>increase the text size</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionReduceIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/reduce.png</normaloff>:/res/UI/icons/reduce.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reduce</string>
+   </property>
+   <property name="toolTip">
+    <string>reduce the text size</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionInfoIcon">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/res/UI/icons/info.png</normaloff>:/res/UI/icons/info.png</iconset>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="toolTip">
+    <string>information about the program</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
