@@ -6,22 +6,57 @@
 HandleTabs::HandleTabs(QTabWidget* tabWidget) : m_tabWidget(tabWidget) {
 }
 
+//==========================================================
+//                          Add
+//==========================================================
 void HandleTabs::addNewTab() {
-    ++m_tabCounter;
-    QString nameNewTab = QString("Tab %1").arg(m_tabCounter);
-
     QWidget *newTab = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout(newTab);
 
     layout->addWidget(new QPlainTextEdit(newTab));
 
-    m_tabWidget->addTab(newTab, nameNewTab);
+    m_tabWidget->addTab(newTab, "Untitled");
     m_tabWidget->setCurrentWidget(newTab);
 }
 
-void HandleTabs::removeTab(const int& index) {
+void HandleTabs::addNewTab(const QString& nameFile,
+                           const QString &text) {
+
+    if (nameFile.isEmpty()) {
+        // here alert
+        return;
+    }
+
+    QWidget *newTab = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(newTab);
+
+    QPlainTextEdit *editor = new QPlainTextEdit(text, newTab);
+    layout->addWidget(editor);
+
+    layout->setContentsMargins(0, 0, 0, 0);
+
+    m_tabWidget->addTab(newTab, nameFile);
+    m_tabWidget->setCurrentWidget(newTab);
+}
+
+//==========================================================
+//                          Close
+//==========================================================
+void HandleTabs::closeTab(const int& index) {
+    if (index < 0 || index >= m_tabWidget->count()) {
+        // here alert
+        return;
+    }
+
     QWidget* tabWidget = m_tabWidget->widget(index);
     m_tabWidget->removeTab(index);
 
-    tabWidget->deleteLater();
+    if (tabWidget)
+        tabWidget->deleteLater();
+}
+
+void HandleTabs::closeCurrentTab() {
+    int currentIndex = m_tabWidget->currentIndex();
+
+    closeTab(currentIndex);
 }

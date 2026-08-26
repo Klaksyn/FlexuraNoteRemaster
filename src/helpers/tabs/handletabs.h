@@ -9,9 +9,11 @@ public:
     HandleTabs(QTabWidget* mainUi);
 
     void addNewTab();
-    void removeTab(const int& index);
+    void addNewTab(const QString& nameFile, const QString &text);
+
+    void closeTab(const int& index);
+    void closeCurrentTab();
 
 private:
     QTabWidget* m_tabWidget;
-    int m_tabCounter = 2;
 };

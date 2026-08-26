@@ -18,14 +18,17 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabsClosable">
        <bool>true</bool>
       </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Untitled</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -45,7 +48,7 @@
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Untitled</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
