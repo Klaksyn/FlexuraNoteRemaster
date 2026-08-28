@@ -2,6 +2,7 @@
 
 #include "helpers/tabs/handletabs.h"
 #include "helpers/fs/fs.h"
+#include "infobar.h"
 
 #include <QMainWindow>
 #include <memory>
@@ -29,8 +30,18 @@ private slots:
 
     void on_actionOpen_triggered();
 
+    void on_actionNew_window_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_actionSave_as_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;
+    std::unique_ptr<FS> fs;
+
+    InfoBar infoBar;
+
 };
 

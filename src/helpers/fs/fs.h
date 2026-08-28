@@ -1,12 +1,21 @@
 #pragma once
 
 #include <QString>
+#include <QWidget>
+#include <QPlainTextEdit>
 
-namespace FS {
-    QString readFile(const QString& filePath);
+#include "../../infobar.h"
+
+class FS {
+public:
+    FS(QWidget* parent, QPlainTextEdit* plainTextEdit);
+
     void saveFile();
     void saveAsFile();
 
-    QString getFileName(const QString& filePath);
-}
+private:
+    QWidget* parent = nullptr;
+    QPlainTextEdit* plainTextEdit = nullptr;
 
+    InfoBar infoBar;
+};

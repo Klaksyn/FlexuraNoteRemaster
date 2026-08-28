@@ -1,5 +1,7 @@
 #include <QWidget>
 #include <QLabel>
+#include <QProcess>
+#include <QCoreApplication>
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
@@ -7,6 +9,7 @@
 
 #include "helpers/tabs/handletabs.h"
 #include "helpers/fs/fs.h"
+#include "helpers/fs/fileutils.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -44,6 +47,16 @@ void MainWindow::on_actionClose_the_window_triggered() {
     handleTabs->closeCurrentTab();
 }
 
+
+//==========================================================
+//                          New Window
+//==========================================================
+void MainWindow::on_actionNew_window_triggered() {
+    QString programPath = QCoreApplication::applicationFilePath();
+
+    QProcess::startDetached(programPath, QStringList());
+}
+
 //==========================================================
 //                          File
 //==========================================================
@@ -55,8 +68,8 @@ void MainWindow::on_actionOpen_triggered() {
     if (filePath.isEmpty())
         return;
 
-    QString fileName = FS::getFileName(filePath);
-    QString fileContent = FS::readFile(filePath);
+    QString fileName = FileUtils::getFileName(filePath);
+    QString fileContent = FileUtils::readFile(filePath);
 
     if (fileContent.isEmpty() && !filePath.isEmpty()) {
         // alert
@@ -64,5 +77,14 @@ void MainWindow::on_actionOpen_triggered() {
 
     handleTabs->addNewTab(fileName, fileContent);
 
+}
+
+void MainWindow::on_actionSave_triggered() {
+    fs->saveFile();
+}
+
+
+void MainWindow::on_actionSave_as_triggered() {
+    fs->saveAsFile();
 }
 

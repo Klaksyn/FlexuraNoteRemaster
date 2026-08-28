@@ -44,6 +44,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         DOCUMENTATION/tabs/mini-doc.txt
         src/helpers/fs/fs.h src/helpers/fs/fs.cpp
         src/helpers/alerts/alerts.h src/helpers/alerts/alerts.cpp
+        src/infobar.h
+        src/helpers/fs/fileutils.h src/helpers/fs/fileutils.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FlexuraNote APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -6,7 +6,7 @@
 class HandleTabs
 {
 public:
-    HandleTabs(QTabWidget* mainUi);
+    HandleTabs(QTabWidget* tabWidget);
 
     void addNewTab();
     void addNewTab(const QString& nameFile, const QString &text);

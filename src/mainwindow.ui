@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>true</bool>
@@ -33,26 +33,6 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QPlainTextEdit" name="plainTextEdit">
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="lineWrapMode">
-           <enum>QPlainTextEdit::WidgetWidth</enum>
-          </property>
-          <property name="centerOnScroll">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tab_4">
-       <attribute name="title">
-        <string>Untitled</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QPlainTextEdit" name="plainTextEdit_2">
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
