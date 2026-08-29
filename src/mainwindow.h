@@ -2,6 +2,8 @@
 
 #include "helpers/tabs/handletabs.h"
 #include "helpers/fs/fs.h"
+#include "helpers/text/text.h"
+
 #include "infobar.h"
 
 #include <QMainWindow>
@@ -21,7 +23,6 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
-
 private slots:
     void on_actionNew_Tab_triggered();
 
@@ -36,10 +37,21 @@ private slots:
 
     void on_actionSave_as_triggered();
 
+    void on_actionOpenFileIcon_triggered();
+
+    void on_actionSaveFileIcon_triggered();
+
+    void on_actionSaveAsFileIcon_triggered();
+
+    void on_actionNewFileIcon_triggered();
+
+    void on_actionCopyTextIcon_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;
     std::unique_ptr<FS> fs;
+    std::unique_ptr<Text> text;
 
     InfoBar infoBar;
 

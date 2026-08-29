@@ -2,13 +2,17 @@
 
 #include <QString>
 #include <QWidget>
+#include <QTabWidget>
 #include <QPlainTextEdit>
 
 #include "../../infobar.h"
+#include "../tabs/handletabs.h"
 
 class FS {
 public:
-    FS(QWidget* parent, QPlainTextEdit* plainTextEdit);
+    FS(QWidget* parent, QTabWidget* tabWidget, QPlainTextEdit* plainTextEdit);
+
+    void openFile();
 
     void saveFile();
     void saveAsFile();
@@ -18,4 +22,5 @@ private:
     QPlainTextEdit* plainTextEdit = nullptr;
 
     InfoBar infoBar;
+    std::unique_ptr<HandleTabs> handleTabs;
 };

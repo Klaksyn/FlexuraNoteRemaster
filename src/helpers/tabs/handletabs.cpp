@@ -40,6 +40,17 @@ void HandleTabs::addNewTab(const QString& nameFile,
 }
 
 //==========================================================
+//                          Name and Index
+//==========================================================
+int HandleTabs::getIndexCurrentTab() {
+    return m_tabWidget->currentIndex();
+}
+
+void HandleTabs::setNameTab(const int &index, const QString &name) {
+    m_tabWidget->setTabText(index, name);
+}
+
+//==========================================================
 //                          Close
 //==========================================================
 void HandleTabs::closeTab(const int& index) {

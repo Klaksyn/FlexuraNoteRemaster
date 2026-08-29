@@ -2,6 +2,8 @@
 #include <QLabel>
 #include <QProcess>
 #include <QCoreApplication>
+#include <QGuiApplication>
+#include <QClipboard>
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
@@ -10,7 +12,7 @@
 #include "helpers/tabs/handletabs.h"
 #include "helpers/fs/fs.h"
 #include "helpers/fs/fileutils.h"
-
+#include "helpers/alerts/alerts.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setTabsClosable(true);
 
     handleTabs = std::make_unique<HandleTabs>(ui->tabWidget);
+    fs = std::make_unique<FS>(this, ui->tabWidget, ui->plainTextEdit);
+    text = std::make_unique<Text>(ui->plainTextEdit);
+
+    Alerts::setDefaultParent(this);
 
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::onTabCloseRequested);
 
@@ -60,31 +66,38 @@ void MainWindow::on_actionNew_window_triggered() {
 //==========================================================
 //                          File
 //==========================================================
+// Like "New File" but just creating a new tab
+void MainWindow::on_actionNewFileIcon_triggered() { // icon
+    handleTabs->addNewTab();
+}
+
 void MainWindow::on_actionOpen_triggered() {
-
-    QString filePath = QFileDialog::getOpenFileName(this,
-                            "open text file","","Text Files(*.txt);;All Files(*)");
-
-    if (filePath.isEmpty())
-        return;
-
-    QString fileName = FileUtils::getFileName(filePath);
-    QString fileContent = FileUtils::readFile(filePath);
-
-    if (fileContent.isEmpty() && !filePath.isEmpty()) {
-        // alert
-    }
-
-    handleTabs->addNewTab(fileName, fileContent);
-
+    fs->openFile();
+}
+void MainWindow::on_actionOpenFileIcon_triggered() {
+    fs->openFile();
 }
 
 void MainWindow::on_actionSave_triggered() {
+    fs->saveFile();
+}
+void MainWindow::on_actionSaveFileIcon_triggered() {
     fs->saveFile();
 }
 
 
 void MainWindow::on_actionSave_as_triggered() {
     fs->saveAsFile();
+}
+void MainWindow::on_actionSaveAsFileIcon_triggered() {
+    fs->saveAsFile();
+}
+
+
+//==========================================================
+//                          Work with text
+//==========================================================
+void MainWindow::on_actionCopyTextIcon_triggered() {
+    text->copySelectedText();
 }
 

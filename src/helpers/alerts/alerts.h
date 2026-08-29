@@ -1,10 +1,12 @@
-#ifndef ALERTS_H
-#define ALERTS_H
+#pragma once
 
-class Alerts
-{
-public:
-    Alerts();
-};
+#include <QString>
+#include <QWidget>
 
-#endif // ALERTS_H
+namespace Alerts {
+    void setDefaultParent(QWidget* parent);
+    void info(const QString& title, const QString& text);
+    void warning(const QString& title, const QString& text);
+    void critical(const QString& title, const QString& text);
+    void quest(const QString& title, const QString& text);
+}
