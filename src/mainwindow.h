@@ -47,6 +47,18 @@ private slots:
 
     void on_actionCopyTextIcon_triggered();
 
+    void on_actionPasteTextIcon_triggered();
+
+    void on_actionCutTextIcon_triggered();
+
+    void on_actionCut_triggered();
+
+    void on_actionCopy_triggered();
+
+    void on_actionPaste_triggered();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;

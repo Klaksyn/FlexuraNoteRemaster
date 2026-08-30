@@ -8,7 +8,7 @@ Text::Text(QPlainTextEdit* plainTextEdit) {
     m_plainText = plainTextEdit;
 }
 
-bool Text::isParentSet() {
+bool Text::isPlainTextEditSet() {
     if (m_plainText == nullptr) {
         Log::error("Text::Text(parent) was not called before using Text!");
         return false;
@@ -17,9 +17,31 @@ bool Text::isParentSet() {
     return true;
 }
 
-void Text::copySelectedText() {
-    QString selectedText = m_plainText->textCursor().selectedText();
+void Text::copy() {
+    if (!isPlainTextEditSet()) return;
 
-    QClipboard *clipboard = QGuiApplication::clipboard();
-    clipboard->setText(selectedText);
+    m_plainText->copy();
 }
+void Text::paste() {
+    if (!isPlainTextEditSet()) return;
+
+    m_plainText->paste();
+}
+void Text::cut() {
+    if (!isPlainTextEditSet()) return;
+
+    m_plainText->cut();
+}
+
+void Text::undo() {
+    if (!isPlainTextEditSet()) return;
+
+    m_plainText->undo();
+}
+
+void Text::redo() {
+    if (!isPlainTextEditSet()) return;
+
+    m_plainText->redo();
+}
+

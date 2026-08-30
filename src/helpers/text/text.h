@@ -8,10 +8,15 @@ class Text {
 public:
     Text(QPlainTextEdit* plainTextEdit);
 
-    void copySelectedText();
+    void copy();
+    void paste();
+    void cut();
+
+    void undo();
+    void redo();
 
 private:
-    bool isParentSet();
+    bool isPlainTextEditSet();
 
     QPlainTextEdit* m_plainText = nullptr;
 };

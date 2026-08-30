@@ -4,6 +4,8 @@
 #include <QCoreApplication>
 #include <QGuiApplication>
 #include <QClipboard>
+#include <QShortcut>
+#include <QKeySequence>
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
@@ -30,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::onTabCloseRequested);
 
+    // hotkey managment
+
 }
 
 MainWindow::~MainWindow()
@@ -55,7 +59,7 @@ void MainWindow::on_actionClose_the_window_triggered() {
 
 
 //==========================================================
-//                          New Window
+//                          Work With Application
 //==========================================================
 void MainWindow::on_actionNew_window_triggered() {
     QString programPath = QCoreApplication::applicationFilePath();
@@ -63,11 +67,15 @@ void MainWindow::on_actionNew_window_triggered() {
     QProcess::startDetached(programPath, QStringList());
 }
 
+void MainWindow::on_actionExit_triggered() {
+    this->close();
+}
+
 //==========================================================
 //                          File
 //==========================================================
 // Like "New File" but just creating a new tab
-void MainWindow::on_actionNewFileIcon_triggered() { // icon
+void MainWindow::on_actionNewFileIcon_triggered() {
     handleTabs->addNewTab();
 }
 
@@ -97,7 +105,33 @@ void MainWindow::on_actionSaveAsFileIcon_triggered() {
 //==========================================================
 //                          Work with text
 //==========================================================
+void MainWindow::on_actionCopy_triggered() {
+    text->copy();
+}
 void MainWindow::on_actionCopyTextIcon_triggered() {
-    text->copySelectedText();
+    text->copy();
+}
+
+
+void MainWindow::on_actionPaste_triggered() {
+    text->paste();
+}
+void MainWindow::on_actionPasteTextIcon_triggered() {
+    text->paste();
+}
+
+
+void MainWindow::on_actionCut_triggered() {
+    text->cut();
+}
+void MainWindow::on_actionCutTextIcon_triggered() {
+    text->cut();
+}
+
+
+
+void MainWindow::on_actionUndoIcon_triggered()
+{
+
 }
 
