@@ -129,9 +129,17 @@ void MainWindow::on_actionCutTextIcon_triggered() {
 }
 
 
+void MainWindow::on_actionUndo_triggered() {
+    text->undo();
+}
+void MainWindow::on_actionUndoIcon_triggered() {
+    text->undo();
+}
 
-void MainWindow::on_actionUndoIcon_triggered()
-{
-
+void MainWindow::on_actionRedo_triggered() {
+    text->redo();
+}
+void MainWindow::on_actionRedoIcon_triggered() {
+    text->redo();
 }
 

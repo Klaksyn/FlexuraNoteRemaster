@@ -59,6 +59,14 @@ private slots:
 
     void on_actionExit_triggered();
 
+    void on_actionUndoIcon_triggered();
+
+    void on_actionUndo_triggered();
+
+    void on_actionRedo_triggered();
+
+    void on_actionRedoIcon_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;

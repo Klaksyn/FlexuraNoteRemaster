@@ -12,6 +12,28 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+# for QtTest
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets Test)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets Test)
+
+add_executable(my_test_executable
+    test/fs/testfileutils.h
+    test/fs/testfileutils.cpp
+    src/helpers/fs/fileutils.h
+    src/helpers/fs/fileutils.cpp
+)
+
+target_include_directories(my_test_executable PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/test
+)
+
+target_link_libraries(my_test_executable PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+
 set(PROJECT_SOURCES
         src/main.cpp
         src/mainwindow.cpp
@@ -29,6 +51,8 @@ set(STYLES_SOURCES
 set(DOCUMENTATION
     DOCUMENTATION/style/includeStyle.md
     DOCUMENTATION/style/mini-doc.txt
+    DOCUMENTATION/tabs/includeHandleTabs.md
+    DOCUMENTATION/tabs/mini-doc.txt
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -40,15 +64,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${DOCUMENTATION}
         resources.qrc
         src/helpers/tabs/handletabs.h src/helpers/tabs/handletabs.cpp
-        DOCUMENTATION/tabs/includeHandleTabs.md
-        DOCUMENTATION/tabs/mini-doc.txt
         src/helpers/fs/fs.h src/helpers/fs/fs.cpp
         src/helpers/alerts/alerts.h src/helpers/alerts/alerts.cpp
         src/infobar.h
         src/helpers/fs/fileutils.h src/helpers/fs/fileutils.cpp
         src/helpers/log/log.h src/helpers/log/log.cpp
         src/helpers/text/text.h src/helpers/text/text.cpp
-
 
     )
 # Define target properties for Android with Qt 6 as:

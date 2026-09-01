@@ -20,6 +20,7 @@ QString FileUtils::readFile(const QString &filePath) {
     }
 
     // here alert
+
     return "";
 }
 
@@ -32,3 +33,4 @@ QString FileUtils::getFileName(const QString &filePath) {
 
     return fileInfo.fileName();
 }
+
