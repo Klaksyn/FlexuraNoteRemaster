@@ -39,3 +39,14 @@ void Alerts::critical(const QString &title, const QString &text) {
 
     QMessageBox::critical(g_defaultParent, title, text);
 }
+
+bool Alerts::questYesOrNo(const QString &title, const QString &text) {
+    if (!isParentSet()) return false;
+
+    QMessageBox::StandardButton reply;
+
+    reply = QMessageBox::question(g_defaultParent, title, text,
+                            QMessageBox::Yes | QMessageBox::No);
+
+    return reply == QMessageBox::Yes;
+}

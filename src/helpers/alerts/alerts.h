@@ -8,5 +8,5 @@ namespace Alerts {
     void info(const QString& title, const QString& text);
     void warning(const QString& title, const QString& text);
     void critical(const QString& title, const QString& text);
-    void quest(const QString& title, const QString& text);
+    bool questYesOrNo(const QString& title, const QString& text);
 }

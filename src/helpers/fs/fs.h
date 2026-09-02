@@ -4,13 +4,14 @@
 #include <QWidget>
 #include <QTabWidget>
 #include <QPlainTextEdit>
+#include <QMap>
 
 #include "../../infobar.h"
 #include "../tabs/handletabs.h"
 
 class FS {
 public:
-    FS(QWidget* parent, QTabWidget* tabWidget, QPlainTextEdit* plainTextEdit);
+    FS(QWidget* parent, HandleTabs* handleTabs, QPlainTextEdit* plainTextEdit);
 
     void openFile();
 
@@ -20,7 +21,7 @@ public:
 private:
     QWidget* parent = nullptr;
     QPlainTextEdit* plainTextEdit = nullptr;
+    HandleTabs* handleTabs;
 
     InfoBar infoBar;
-    std::unique_ptr<HandleTabs> handleTabs;
 };

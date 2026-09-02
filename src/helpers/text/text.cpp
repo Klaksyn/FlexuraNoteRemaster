@@ -45,3 +45,14 @@ void Text::redo() {
     m_plainText->redo();
 }
 
+void Text::selectAll() {
+    if (!isPlainTextEditSet()) return;
+
+    m_plainText->selectAll();
+}
+void Text::deleteAll() {
+    if (!isPlainTextEditSet()) return;
+
+    m_plainText->clear();
+}
+

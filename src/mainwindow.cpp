@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setTabsClosable(true);
 
     handleTabs = std::make_unique<HandleTabs>(ui->tabWidget);
-    fs = std::make_unique<FS>(this, ui->tabWidget, ui->plainTextEdit);
+    fs = std::make_unique<FS>(this, handleTabs.get(), ui->plainTextEdit);
     text = std::make_unique<Text>(ui->plainTextEdit);
 
     Alerts::setDefaultParent(this);
@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::onTabCloseRequested);
 
     // hotkey managment
-
+    // in dev
 }
 
 MainWindow::~MainWindow()
@@ -83,14 +83,14 @@ void MainWindow::on_actionOpen_triggered() {
     fs->openFile();
 }
 void MainWindow::on_actionOpenFileIcon_triggered() {
-    fs->openFile();
+    on_actionOpen_triggered();
 }
 
 void MainWindow::on_actionSave_triggered() {
     fs->saveFile();
 }
 void MainWindow::on_actionSaveFileIcon_triggered() {
-    fs->saveFile();
+    on_actionSave_triggered();
 }
 
 
@@ -98,7 +98,7 @@ void MainWindow::on_actionSave_as_triggered() {
     fs->saveAsFile();
 }
 void MainWindow::on_actionSaveAsFileIcon_triggered() {
-    fs->saveAsFile();
+    on_actionSave_as_triggered();
 }
 
 
@@ -109,7 +109,7 @@ void MainWindow::on_actionCopy_triggered() {
     text->copy();
 }
 void MainWindow::on_actionCopyTextIcon_triggered() {
-    text->copy();
+    on_actionCopy_triggered();
 }
 
 
@@ -117,7 +117,7 @@ void MainWindow::on_actionPaste_triggered() {
     text->paste();
 }
 void MainWindow::on_actionPasteTextIcon_triggered() {
-    text->paste();
+    on_actionPasteTextIcon_triggered();
 }
 
 
@@ -125,7 +125,7 @@ void MainWindow::on_actionCut_triggered() {
     text->cut();
 }
 void MainWindow::on_actionCutTextIcon_triggered() {
-    text->cut();
+    on_actionCut_triggered();
 }
 
 
@@ -133,13 +133,26 @@ void MainWindow::on_actionUndo_triggered() {
     text->undo();
 }
 void MainWindow::on_actionUndoIcon_triggered() {
-    text->undo();
+    on_actionUndoIcon_triggered();
 }
+
 
 void MainWindow::on_actionRedo_triggered() {
     text->redo();
 }
 void MainWindow::on_actionRedoIcon_triggered() {
-    text->redo();
+    on_actionRedo_triggered();
+}
+
+
+void MainWindow::on_actionSelect_all_triggered() {
+    text->selectAll();
+}
+
+void MainWindow::on_actionDelete_all_triggered() {
+    QString textQuest = "Are you sure you want to clear the text without recovery?";
+
+    if (Alerts::questYesOrNo("Delete All Text", textQuest))
+        text->deleteAll();
 }
 

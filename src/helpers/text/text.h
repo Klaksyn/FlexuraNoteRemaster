@@ -15,6 +15,9 @@ public:
     void undo();
     void redo();
 
+    void selectAll();
+    void deleteAll();
+
 private:
     bool isPlainTextEditSet();
 

@@ -67,6 +67,10 @@ private slots:
 
     void on_actionRedoIcon_triggered();
 
+    void on_actionSelect_all_triggered();
+
+    void on_actionDelete_all_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;

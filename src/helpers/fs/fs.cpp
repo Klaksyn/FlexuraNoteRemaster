@@ -8,13 +8,12 @@
 #include "fileutils.h"
 
 FS::FS(QWidget* parent,
-       QTabWidget* tabWidget,
+       HandleTabs* handleTabs,
        QPlainTextEdit* plainTextEdit) {
-    this->parent = parent;
-    this->plainTextEdit = plainTextEdit;
 
-    handleTabs = std::make_unique<HandleTabs>(tabWidget);
-    Alerts::setDefaultParent(parent);
+    this->parent = parent;
+    this->handleTabs = handleTabs;
+    this->plainTextEdit = plainTextEdit;
 
 }
 
