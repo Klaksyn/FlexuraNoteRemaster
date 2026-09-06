@@ -23,7 +23,7 @@ void HandleTabs::addNewTab(const QString& nameFile,
                            const QString &text) {
 
     if (nameFile.isEmpty()) {
-        // here alert
+        // here alert (idk why)
         return;
     }
 

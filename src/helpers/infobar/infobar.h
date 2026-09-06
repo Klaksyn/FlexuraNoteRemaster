@@ -19,6 +19,8 @@ struct TabInfo {
 class InfoBar
 {
 public:
+    void changeIndexTab(int from, int to);
+
     void setPath(const QString& path, int indexTab);
     QString getPath(int indexTab);
 

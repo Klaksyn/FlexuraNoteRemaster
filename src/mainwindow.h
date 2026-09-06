@@ -27,6 +27,8 @@ private slots:
     void on_actionNew_Tab_triggered();
 
     void onTabCloseRequested(int index);
+    void onTabChanged(int indexTab);
+    void onTabMoved(int from, int to);
     void on_actionClose_the_window_triggered();
 
     void on_actionOpen_triggered();

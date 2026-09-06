@@ -3,10 +3,9 @@
 #include <QProcess>
 #include <QCoreApplication>
 #include <QGuiApplication>
-#include <QClipboard>
-#include <QShortcut>
 #include <QKeySequence>
 #include <QStatusBar>
+#include <QTabBar>
 
 #include "mainwindow.h"
 #include "../UI/ui_mainwindow.h"
@@ -32,6 +31,11 @@ MainWindow::MainWindow(QWidget *parent)
     Alerts::setDefaultParent(this);
 
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::onTabCloseRequested);
+    // Checking the tab change
+    connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
+    // Checking the movement of tabs
+    connect(ui->tabWidget->tabBar(), &QTabBar::tabMoved, this, &MainWindow::onTabMoved);
+
 
     // setting status bar
     ui->statusBar->addPermanentWidget(ui->pathLabel, 1);
@@ -61,6 +65,13 @@ void MainWindow::on_actionClose_the_window_triggered() {
     handleTabs->closeCurrentTab();
 }
 
+void MainWindow::onTabChanged(int indexTab) {
+    ui->pathLabel->setText(infoBar.getPath(indexTab));
+}
+
+void MainWindow::onTabMoved(int from, int to) {
+    infoBar.changeIndexTab(from, to);
+}
 
 //==========================================================
 //                          Work With Application

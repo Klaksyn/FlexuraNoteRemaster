@@ -32,9 +32,12 @@ void FS::openFile() {
     QString fileContent = FileUtils::readFile(filePath);
 
     handleTabs->addNewTab(fileName, fileContent);
-    handleTabs->setNameTab(handleTabs->getIndexCurrentTab(), FileUtils::getFileName(filePath));
 
-    infoBar->setPath(filePath, handleTabs->getIndexCurrentTab());
+    int currentIndexTab = handleTabs->getIndexCurrentTab();
+
+    handleTabs->setNameTab(currentIndexTab, FileUtils::getFileName(filePath));
+
+    infoBar->setPath(filePath, currentIndexTab);
 }
 
 
