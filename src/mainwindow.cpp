@@ -6,9 +6,10 @@
 #include <QClipboard>
 #include <QShortcut>
 #include <QKeySequence>
+#include <QStatusBar>
 
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "../UI/ui_mainwindow.h"
 #include "qfiledialog.h"
 
 #include "helpers/tabs/handletabs.h"
@@ -25,12 +26,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setTabsClosable(true);
 
     handleTabs = std::make_unique<HandleTabs>(ui->tabWidget);
-    fs = std::make_unique<FS>(this, handleTabs.get(), ui->plainTextEdit);
+    fs = std::make_unique<FS>(this, handleTabs.get(), ui->plainTextEdit, &infoBar);
     text = std::make_unique<Text>(ui->plainTextEdit);
 
     Alerts::setDefaultParent(this);
 
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::onTabCloseRequested);
+
+    // setting status bar
+    ui->statusBar->addPermanentWidget(ui->pathLabel, 1);
 
     // hotkey managment
     // in dev
@@ -96,6 +100,7 @@ void MainWindow::on_actionSaveFileIcon_triggered() {
 
 void MainWindow::on_actionSave_as_triggered() {
     fs->saveAsFile();
+    ui->pathLabel->setText(infoBar.getPath(handleTabs->getIndexCurrentTab()));
 }
 void MainWindow::on_actionSaveAsFileIcon_triggered() {
     on_actionSave_as_triggered();

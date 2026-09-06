@@ -9,12 +9,13 @@
 
 FS::FS(QWidget* parent,
        HandleTabs* handleTabs,
-       QPlainTextEdit* plainTextEdit) {
+       QPlainTextEdit* plainTextEdit,
+       InfoBar* infoBar) {
 
     this->parent = parent;
     this->handleTabs = handleTabs;
     this->plainTextEdit = plainTextEdit;
-
+    this->infoBar = infoBar;
 }
 
 //==========================================================
@@ -32,6 +33,8 @@ void FS::openFile() {
 
     handleTabs->addNewTab(fileName, fileContent);
     handleTabs->setNameTab(handleTabs->getIndexCurrentTab(), FileUtils::getFileName(filePath));
+
+    infoBar->setPath(filePath, handleTabs->getIndexCurrentTab());
 }
 
 
@@ -41,14 +44,14 @@ void FS::openFile() {
 void FS::saveFile() {
     QString text = plainTextEdit->toPlainText();
 
-    if (infoBar.path.isEmpty()) {
+    if (infoBar->getPath(handleTabs->getIndexCurrentTab()).isEmpty()) {
         saveAsFile();
         return;
     }
 
-    QFile file(infoBar.path);
+    QFile file(infoBar->getPath(handleTabs->getIndexCurrentTab()));
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        Alerts::critical("ERROR", "Could not open file for writing!");
+        //Alerts::critical("ERROR", "Could not open file for writing!");
         return;
     }
 
@@ -67,7 +70,7 @@ void FS::saveAsFile() {
 
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        Alerts::critical("ERROR", "Could not open file for writing!");
+        //Alerts::critical("ERROR", "Could not open file for writing!");
         return;
     }
 
@@ -77,7 +80,8 @@ void FS::saveAsFile() {
     file.close();
 
     handleTabs->setNameTab(handleTabs->getIndexCurrentTab(), FileUtils::getFileName(filePath));
-    infoBar.path = filePath;
+    infoBar->setPath(filePath, handleTabs->getIndexCurrentTab());
+
 }
 
 

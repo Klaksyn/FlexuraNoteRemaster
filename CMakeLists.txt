@@ -38,7 +38,7 @@ set(PROJECT_SOURCES
         src/main.cpp
         src/mainwindow.cpp
         src/mainwindow.h
-        src/mainwindow.ui
+        UI/mainwindow.ui
 )
 
 set(STYLES_SOURCES
@@ -66,10 +66,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         src/helpers/tabs/handletabs.h src/helpers/tabs/handletabs.cpp
         src/helpers/fs/fs.h src/helpers/fs/fs.cpp
         src/helpers/alerts/alerts.h src/helpers/alerts/alerts.cpp
-        src/infobar.h
+
         src/helpers/fs/fileutils.h src/helpers/fs/fileutils.cpp
         src/helpers/log/log.h src/helpers/log/log.cpp
         src/helpers/text/text.h src/helpers/text/text.cpp
+        src/helpers/infobar/infobar.h src/helpers/infobar/infobar.cpp
 
     )
 # Define target properties for Android with Qt 6 as:

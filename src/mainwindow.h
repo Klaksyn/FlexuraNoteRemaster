@@ -4,7 +4,7 @@
 #include "helpers/fs/fs.h"
 #include "helpers/text/text.h"
 
-#include "infobar.h"
+#include "helpers/infobar/infobar.h"
 
 #include <QMainWindow>
 #include <memory>
