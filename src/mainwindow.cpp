@@ -8,13 +8,14 @@
 #include <QTabBar>
 
 #include "mainwindow.h"
-#include "../UI/ui_mainwindow.h"
+#include "ui_mainwindow.h"
 #include "qfiledialog.h"
 
 #include "helpers/tabs/handletabs.h"
 #include "helpers/fs/fs.h"
 #include "helpers/fs/fileutils.h"
 #include "helpers/alerts/alerts.h"
+#include "helpers/log/log.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     handleTabs = std::make_unique<HandleTabs>(ui->tabWidget);
     fs = std::make_unique<FS>(this, handleTabs.get(), ui->plainTextEdit, &infoBar);
     text = std::make_unique<Text>(ui->plainTextEdit);
+
+    findDialog = std::make_unique<FindDialog>(this);
 
     Alerts::setDefaultParent(this);
 
@@ -149,7 +152,7 @@ void MainWindow::on_actionUndo_triggered() {
     text->undo();
 }
 void MainWindow::on_actionUndoIcon_triggered() {
-    on_actionUndoIcon_triggered();
+    on_actionUndo_triggered();
 }
 
 
@@ -170,5 +173,23 @@ void MainWindow::on_actionDelete_all_triggered() {
 
     if (Alerts::questYesOrNo("Delete All Text", textQuest))
         text->deleteAll();
+}
+
+
+void MainWindow::on_actionFind_triggered()
+{
+    if (findDialog->isCurrentlyVisible()) {
+        findDialog->close();
+    }
+
+    findDialog->showFindDialog();
+}
+void MainWindow::on_actionFindIcon_triggered()
+{
+    if (findDialog->isCurrentlyVisible()) {
+        findDialog->close();
+    }
+
+    findDialog->showFindDialog();
 }
 

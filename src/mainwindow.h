@@ -3,8 +3,9 @@
 #include "helpers/tabs/handletabs.h"
 #include "helpers/fs/fs.h"
 #include "helpers/text/text.h"
-
 #include "helpers/infobar/infobar.h"
+
+#include "find/finddialog.h"
 
 #include <QMainWindow>
 #include <memory>
@@ -73,6 +74,10 @@ private slots:
 
     void on_actionDelete_all_triggered();
 
+    void on_actionFind_triggered();
+
+    void on_actionFindIcon_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;
@@ -80,6 +85,8 @@ private:
     std::unique_ptr<Text> text;
 
     InfoBar infoBar;
+
+    std::unique_ptr<FindDialog> findDialog;
 
 };
 

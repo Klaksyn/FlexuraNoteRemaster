@@ -118,6 +118,7 @@
     </widget>
     <addaction name="actionLine_break"/>
     <addaction name="actionAuto_save"/>
+    <addaction name="actionTooldBar"/>
     <addaction name="actionSatus_bar"/>
     <addaction name="menuTheme"/>
     <addaction name="separator"/>
@@ -125,6 +126,7 @@
     <addaction name="actionReset_text_settings"/>
     <addaction name="separator"/>
     <addaction name="actionShow_html_code"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -820,6 +822,14 @@
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionTooldBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>ToolsBar</string>
    </property>
   </action>
  </widget>
