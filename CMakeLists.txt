@@ -76,6 +76,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         src/helpers/infobar/infobar.h src/helpers/infobar/infobar.cpp
         ${FIND_FOR_PROJECT}
         src/find/finddialog.h src/find/finddialog.cpp src/find/finddialog.ui
+        README_ru.md
 
     )
 # Define target properties for Android with Qt 6 as:
