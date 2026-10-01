@@ -40,6 +40,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->tabWidget->tabBar(), &QTabBar::tabMoved, this, &MainWindow::onTabMoved);
 
 
+    // setting find / replace text edit
+    ui->searchWidget->hide();
+    ui->replaceWidget->hide();
+
     // setting status bar
     ui->statusBar->addPermanentWidget(ui->pathLabel, 1);
 
@@ -178,18 +182,16 @@ void MainWindow::on_actionDelete_all_triggered() {
 
 void MainWindow::on_actionFind_triggered()
 {
-    if (findDialog->isCurrentlyVisible()) {
-        findDialog->close();
+    if (ui->searchWidget->isHidden()) {
+        ui->plainTextEditSearch->setFocus();
+        ui->searchWidget->show();
+        return;
     }
 
-    findDialog->showFindDialog();
+    ui->searchWidget->hide();
 }
 void MainWindow::on_actionFindIcon_triggered()
 {
-    if (findDialog->isCurrentlyVisible()) {
-        findDialog->close();
-    }
-
-    findDialog->showFindDialog();
+    on_actionFind_triggered();
 }
 
