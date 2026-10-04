@@ -41,12 +41,6 @@ set(PROJECT_SOURCES
         src/mainwindow.ui
 )
 
-set(FIND_FOR_PROJECT
-    src/find/finddialog.cpp
-    src/find/finddialog.h
-    src/find/finddialog.ui
-)
-
 set(STYLES_SOURCES
     src/helpers/style/styleloader.h
     src/helpers/style/styleloader.cpp
@@ -74,10 +68,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         src/helpers/log/log.h src/helpers/log/log.cpp
         src/helpers/text/text.h src/helpers/text/text.cpp
         src/helpers/infobar/infobar.h src/helpers/infobar/infobar.cpp
-        ${FIND_FOR_PROJECT}
-
-        README_ru.md
-        todo
 
     )
 # Define target properties for Android with Qt 6 as:

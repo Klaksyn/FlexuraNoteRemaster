@@ -5,8 +5,6 @@
 #include "helpers/text/text.h"
 #include "helpers/infobar/infobar.h"
 
-#include "find/finddialog.h"
-
 #include <QMainWindow>
 #include <memory>
 
@@ -85,8 +83,6 @@ private:
     std::unique_ptr<Text> text;
 
     InfoBar infoBar;
-
-    std::unique_ptr<FindDialog> findDialog;
 
 };
 

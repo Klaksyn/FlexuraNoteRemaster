@@ -29,8 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     fs = std::make_unique<FS>(this, handleTabs.get(), ui->plainTextEdit, &infoBar);
     text = std::make_unique<Text>(ui->plainTextEdit);
 
-    findDialog = std::make_unique<FindDialog>(this);
-
     Alerts::setDefaultParent(this);
 
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::onTabCloseRequested);
@@ -81,7 +79,7 @@ void MainWindow::onTabMoved(int from, int to) {
 }
 
 //==========================================================
-//                          Work With Application
+//                 Work With Application
 //==========================================================
 void MainWindow::on_actionNew_window_triggered() {
     QString programPath = QCoreApplication::applicationFilePath();
