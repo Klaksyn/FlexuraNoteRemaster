@@ -37,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
     // Checking the movement of tabs
     connect(ui->tabWidget->tabBar(), &QTabBar::tabMoved, this, &MainWindow::onTabMoved);
 
-
     // setting find / replace text edit
     ui->searchWidget->hide();
     ui->replaceWidget->hide();
@@ -177,19 +176,45 @@ void MainWindow::on_actionDelete_all_triggered() {
         text->deleteAll();
 }
 
-
+//=========================================
+//                  Search
+//=========================================
 void MainWindow::on_actionFind_triggered()
 {
     if (ui->searchWidget->isHidden()) {
         ui->plainTextEditSearch->setFocus();
         ui->searchWidget->show();
+        ui->replaceWidget->hide();
         return;
     }
 
     ui->searchWidget->hide();
+    ui->replaceWidget->hide();
 }
 void MainWindow::on_actionFindIcon_triggered()
 {
     on_actionFind_triggered();
+}
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+
+}
+
+//=========================================
+//                  Replace
+//=========================================
+void MainWindow::on_actionReplaceTextIcon_triggered()
+{
+    if (ui->replaceWidget->isHidden()) {
+        ui->plainTextEditReplaceOn->setFocus();
+        ui->searchWidget->show();
+        ui->replaceWidget->show();
+        return;
+    }
+    ui->searchWidget->hide();
+    ui->replaceWidget->hide();
 }
 

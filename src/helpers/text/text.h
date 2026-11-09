@@ -8,6 +8,8 @@ class Text {
 public:
     Text(QPlainTextEdit* plainTextEdit);
 
+    void findTextAndSelect(QPlainTextEdit* plainTextEdit, QString target);
+
     void copy();
     void paste();
     void cut();

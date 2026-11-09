@@ -76,6 +76,10 @@ private slots:
 
     void on_actionFindIcon_triggered();
 
+    void on_pushButton_clicked();
+
+    void on_actionReplaceTextIcon_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<HandleTabs> handleTabs;
