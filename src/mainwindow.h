@@ -6,6 +6,7 @@
 #include "helpers/infobar/infobar.h"
 
 #include <QMainWindow>
+#include <QEvent>
 #include <memory>
 
 QT_BEGIN_NAMESPACE
@@ -79,6 +80,9 @@ private slots:
     void on_pushButton_clicked();
 
     void on_actionReplaceTextIcon_triggered();
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     Ui::MainWindow *ui;

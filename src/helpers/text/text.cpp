@@ -3,6 +3,7 @@
 #include <QClipboard>
 
 #include "../log/log.h"
+#include "../alerts/alerts.h"
 
 Text::Text(QPlainTextEdit* plainTextEdit) {
     m_plainText = plainTextEdit;
@@ -24,6 +25,8 @@ void Text::copy() {
 }
 void Text::paste() {
     if (!isPlainTextEditSet()) return;
+    if (!m_plainText->canPaste())
+        Alerts::critical("Ошибка вставки текста", "Невозможно вставить, возможно вы хотите вставить не текст!");
 
     m_plainText->paste();
 }

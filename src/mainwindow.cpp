@@ -41,6 +41,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->searchWidget->hide();
     ui->replaceWidget->hide();
 
+    // path event
+    ui->pathLabel->installEventFilter(this);
+    ui->pathLabel->setCursor(Qt::PointingHandCursor);
+
     // setting status bar
     ui->statusBar->addPermanentWidget(ui->pathLabel, 1);
 
@@ -51,6 +55,19 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
+    if (watched == ui->pathLabel && event->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+
+        if (mouseEvent->button() == Qt::LeftButton) {
+            fs->openInFileExplorer(fs->getFullPath());
+            return true;
+        }
+    }
+
+    return QMainWindow::eventFilter(watched, event);
 }
 
 
@@ -217,4 +234,6 @@ void MainWindow::on_actionReplaceTextIcon_triggered()
     ui->searchWidget->hide();
     ui->replaceWidget->hide();
 }
+
+
 

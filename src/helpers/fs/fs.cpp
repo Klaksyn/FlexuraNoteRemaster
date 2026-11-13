@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QFileDialog>
+#include <QProcess>
 
 #include "../alerts/alerts.h"
 #include "fileutils.h"
@@ -16,6 +17,11 @@ FS::FS(QWidget* parent,
     this->handleTabs = handleTabs;
     this->plainTextEdit = plainTextEdit;
     this->infoBar = infoBar;
+    this->fullPathToFile = new QString();
+}
+
+FS::~FS() {
+    delete fullPathToFile;
 }
 
 //==========================================================
@@ -37,7 +43,44 @@ void FS::openFile() {
 
     handleTabs->setNameTab(currentIndexTab, FileUtils::getFileName(filePath));
 
-    infoBar->setPath(filePath, currentIndexTab);
+    infoBar->setPath(FileUtils::shortenPath(filePath), currentIndexTab);
+    setFullPath(filePath);
+}
+
+void FS::openInFileExplorer(const QString &filePath) {
+    QFileInfo fileInfo(filePath);
+
+#if defined(Q_OS_WIN)
+    QStringList args;
+
+    if (!fileInfo.isDir()) {
+        args << "/select,";
+    }
+
+    args << QDir::toNativeSeparators(filePath);
+    QProcess::startDetached("explorer.exe", args);
+#elif defined(Q_OS_MAC)
+    QStringList args;
+    args << "-e" << QString("tell application \"Finder\" to reveal POSIX file \"%1\"").arg(filePath);
+    QProcess::execute("/usr/bin/osascript", args);
+    args.clear();
+    args << "-e" << "tell application \"Finder\" to activate";
+    QProcess::execute("/usr/bin/osascript", args);
+
+#else
+    // Linux: GNOME/Nautilus, KDE/Dolphin and etc
+    QStringList args;
+    args << "--session" << "--dest=org.freedesktop.FileManager1"
+         << "--type=method_call" << "/org/freedesktop/FileManager1"
+         << "org.freedesktop.FileManager1.ShowItems"
+         << QString("array:string:file://%1").arg(fileInfo.absoluteFilePath())
+         << "string:";
+    if (!QProcess::startDetached("dbus-send", args)) {
+        // Резервный вариант: просто открыть родительскую папку
+        QDesktopServices::openUrl(QUrl::fromLocalFile(fileInfo.absolutePath()));
+    }
+#endif
+
 }
 
 
@@ -84,9 +127,21 @@ void FS::saveAsFile() {
 
     handleTabs->setNameTab(handleTabs->getIndexCurrentTab(), FileUtils::getFileName(filePath));
     infoBar->setPath(filePath, handleTabs->getIndexCurrentTab());
+    setFullPath(filePath);
+
 
 }
 
+//==========================================================
+//                          Full Path
+//==========================================================
+void FS::setFullPath(const QString& path) {
+    if (fullPathToFile != &path && fullPathToFile != nullptr)
+        *fullPathToFile = path;
+}
 
+QString FS::getFullPath() {
+    return fullPathToFile ? *fullPathToFile : QString();
+}
 
 

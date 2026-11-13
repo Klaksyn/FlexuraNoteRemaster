@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1017</width>
-    <height>531</height>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -112,7 +112,7 @@
            <item>
             <widget class="QPlainTextEdit" name="plainTextEditReplaceOn">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -195,7 +195,6 @@
     <addaction name="actionFind"/>
     <addaction name="actionFind_next"/>
     <addaction name="actionFind_earlier"/>
-    <addaction name="actionGo_to"/>
     <addaction name="separator"/>
     <addaction name="actionSelect_all"/>
     <addaction name="actionDelete_all"/>
